@@ -7,26 +7,26 @@ import java.util.Properties;
  * Created by Varderesyan Tsolak on 20.01.2018.
  */
 public class TestProperties {
-        private final Properties properties = new Properties();
+    private final Properties properties = new Properties();
 
-        private static TestProperties INSTANCE = null;
+    private static TestProperties INSTANCE = null;
 
-        private TestProperties(){
+    private TestProperties(){
 
-            try {
-                properties.load(new FileInputStream(new File("C:\\Users\\MY\\IdeaProjects\\Selenium_course1/enviroment.properties")));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        public static TestProperties getInstance() {
-
-            if (INSTANCE == null){
-                INSTANCE = new TestProperties();
-            }
-            return INSTANCE;
-        }
-        public Properties getProperties() {
-            return properties;
+        try {
+            properties.load(new FileInputStream(new File("C:\\Users\\MY\\IdeaProjects\\Selenium_course1/enviroment.properties")));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+    public static TestProperties getInstance() {
+
+        if (INSTANCE == null){
+            INSTANCE = new TestProperties();
+        }
+        return INSTANCE;
+    }
+    public Properties getProperties() {
+        return properties;
+    }
+}

@@ -37,6 +37,7 @@ public class BaseTest {
 
         baseUrl = properties.getProperty("app.url");
         System.out.println(baseUrl);
+        driver.get(baseUrl);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }

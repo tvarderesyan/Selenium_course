@@ -13,7 +13,7 @@ public class MyRefactoringTest extends BaseTest {
 
     public void newInsuranceTest() {
         MainPage mainPage = new MainPage(driver);
-        mainPage.selectmainMenu("Застраховать себя");
+        mainPage.selectmainMenu("Застраховать себя ");
         mainPage.selectsubMenu("Страхование путешественников");
 
         new TravelInsurancePage(driver).executeButton.click();
