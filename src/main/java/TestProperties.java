@@ -14,7 +14,7 @@ public class TestProperties {
     private TestProperties(){
 
         try {
-            properties.load(new FileInputStream(new File("C:\\Users\\MY\\IdeaProjects\\Selenium_course1/enviroment.properties")));
+            properties.load(new FileInputStream(new File("./environment.properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }

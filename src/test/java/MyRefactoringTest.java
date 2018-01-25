@@ -1,5 +1,12 @@
 import org.junit.Test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.MainPage;
+import pages.SelectInsurancePage;
 import pages.SendAppPage;
 import pages.TravelInsurancePage;
 
@@ -9,6 +16,8 @@ import pages.TravelInsurancePage;
  */
 public class MyRefactoringTest extends BaseTest {
 
+    Wait<WebDriver> wait = new WebDriverWait(driver, 60, 1000);
+
     @Test
 
     public void newInsuranceTest() {
@@ -17,6 +26,18 @@ public class MyRefactoringTest extends BaseTest {
         mainPage.selectsubMenu("Страхование путешественников");
 
         new TravelInsurancePage(driver).executeButton.click();
+
+
+        for (String handle1 : driver.getWindowHandles()) {
+            driver.switchTo().window(handle1);
+        }
+
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("(//H2[@class='l-header-title ng-binding'][text()='Страхование путешественников'][text()='Страхование путешественников'])[1]"))));
+        SelectInsurancePage selectInsurancePage = new SelectInsurancePage(driver);
+        selectInsurancePage.findTitle("Страхование путешественников");
+        selectInsurancePage.selecType("Застраховать себя ");
+        selectInsurancePage.send("Страхование путешественников");
+
 
         SendAppPage sendAppPage = new SendAppPage(driver);
         sendAppPage.fillField("Фамилия/Surname", "Ivanov");
