@@ -1,5 +1,8 @@
 package pages;
 
+import Steps.BaseSteps;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,9 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class SendAppPage {
     WebDriver driver;
-
-    @FindBy(xpath = "(//H2[@class='l-header-title ng-binding'][text()='Страхование путешественников'][text()='Страхование путешественников'])[1]")
-    public WebElement title;
 
     @FindBy(name = "insured0_surname")
     WebElement lastNameEng;
@@ -56,12 +56,8 @@ public class SendAppPage {
     @FindBy(xpath = "//*[@ng-click='save()'][text()='Продолжить']")
     public WebElement continueButton;
 
-    public SendAppPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.visibilityOf(title));
-        this.driver = driver;
-    }
+    @FindBy(xpath = "//DIV[@ng-show='tryNext && myForm.$invalid'][text()='Заполнены не все обязательные поля']")
+    public WebElement errorMessage;
 
     public void fillField(String fieldName, String value) {
         switch (fieldName) {
@@ -112,8 +108,47 @@ public class SendAppPage {
         }
     }
 
+
+    public String getFillField(String fieldName) {
+        switch (fieldName) {
+            case "Фамилия/Surname":
+                return lastNameEng.getAttribute("value");
+            case "Имя/Given names":
+                return firstNameEng.getAttribute("value");
+            case "Дата рождения":
+                return insuredBirthday.getAttribute("value");
+            case "Фамилия":
+                return lastName.getAttribute("value");
+            case "Имя":
+                return firstName.getAttribute("value");
+            case "Отчество":
+                return middleName.getAttribute("value");
+            case "Дата рождения1":
+                return birthDate.getAttribute("value");
+            case "Пол":
+                return gender.getAttribute("value");
+            case "Серия паспорта":
+                return serialNumber.getAttribute("value");
+            case "Номер паспорта":
+                return number.getAttribute("value");
+            case "Дата выдачи":
+                return issueDate.getAttribute("value");
+            case "Кем выдан":
+                return issuePlace.getAttribute("value");
+        }
+
+        throw new AssertionError("Поле не объявлено на странице");
+
+    }
+
+
     protected void fillField(WebElement element, String value) {
         element.clear();
         element.sendKeys(value);
+    }
+
+    public SendAppPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+
     }
 }
