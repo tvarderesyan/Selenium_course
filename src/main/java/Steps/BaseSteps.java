@@ -1,7 +1,7 @@
 package Steps;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -14,17 +14,17 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * Created by MY on 20.01.2018.
+ * Created by Varderesyan Tsolak on 20.01.2018.
  */
 public class BaseSteps {
 
-    protected static WebDriver driver;
+    public static WebDriver driver;
     protected static String baseUrl;
     public static Properties properties = TestProperties.getInstance().getProperties();
 
 
-    @BeforeClass
-    public static void setUp() throws Exception {
+    @Before
+        public static void setUp() throws Exception {
 
         switch (properties.getProperty("browser")) {
             case "firefox":
@@ -47,17 +47,15 @@ public class BaseSteps {
         driver.manage().window().maximize();
     }
 
-    @AfterClass
+    @After
 
     public static void tearDown() throws Exception {
         driver.quit();
     }
 
     @Attachment(type = "image/png", value = "Screenshot")
-    public static byte[] takeScreenshot() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    public static byte[] takeScreenShot() {
+        return ((TakesScreenshot)BaseSteps.driver).getScreenshotAs(OutputType.BYTES);
     }
-
-
 
 }

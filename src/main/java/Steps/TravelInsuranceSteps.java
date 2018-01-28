@@ -3,12 +3,10 @@ package Steps;
 import pages.TravelInsurancePage;
 import ru.yandex.qatools.allure.annotations.Step;
 import static org.junit.Assert.assertTrue;
-import org.openqa.selenium.WebDriver;
 
-import java.sql.Driver;
 
 /**
- * Created by MY on 22.01.2018.
+ * Created by Varderesyan Tsolak on 22.01.2018.
  */
 public class TravelInsuranceSteps extends BaseSteps {
 

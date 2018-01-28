@@ -1,16 +1,13 @@
 package Steps;
 
-import Steps.BaseSteps;
+
 import pages.SendAppPage;
-import pages.TravelInsurancePage;
 import ru.yandex.qatools.allure.annotations.Step;
-
 import java.util.HashMap;
-
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by MY on 22.01.2018.
+ * Created by Varderesyan Tsolak on 22.01.2018.
  */
 public class SendAppSteps extends BaseSteps {
 

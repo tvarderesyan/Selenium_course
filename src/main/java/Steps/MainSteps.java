@@ -1,11 +1,10 @@
 package Steps;
 
-import org.openqa.selenium.WebDriver;
 import pages.MainPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
 /**
- * Created by MY on 22.01.2018.
+ * Created by Varderesyan Tsolak on 22.01.2018.
  */
 public class MainSteps extends BaseSteps {
 
