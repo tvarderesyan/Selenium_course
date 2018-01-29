@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Created by MY on 26.01.2018.
  */
-public class TestAllureReport extends BaseSteps {
+public class SeleniumLearningTask3 extends BaseSteps {
 
     @Title("Заявка на Страхование путешественников")
     @Test
