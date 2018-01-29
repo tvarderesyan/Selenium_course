@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.lang.String;
 
-public class IsuranceTest {
+public class SeleniumLearningTask1 {
     private WebDriver driver;
     private String baseUrl;
 
