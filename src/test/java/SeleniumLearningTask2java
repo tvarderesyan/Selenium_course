@@ -14,7 +14,7 @@ import pages.TravelInsurancePage;
 /**
  * Created by Varderesyan Tsolak on 21.01.2018.
  */
-public class MyRefactoringTest extends BaseTest {
+public class SeleniumLearningTask2 extends BaseTest {
 
     Wait<WebDriver> wait = new WebDriverWait(driver, 60, 1000);
 
